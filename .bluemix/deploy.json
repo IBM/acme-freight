@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Logistics Wizard Delivery Pipeline Setup",
+  "description": "Deployment of the Logistics Wizard demo",
+  "longDescription": "The Delivery Pipeline for DevOps Services allows you to automate your continuous deployment setup. To avoid conflicts, make sure to use unique application names. We recommend to use a common prefix like your name or initials.",
+  "type": "object",
+  "properties": {
+    "selected-region": {
+      "description": "The Bluemix region",
+      "type": "string"
+    },
+    "selected-organization": {
+      "description": "The Bluemix org",
+      "type": "string"
+    },
+   "selected-space": {
+      "description": "The Bluemix space",
+      "type": "string"
+    },
+    "erp-app-name": {
+      "description": "Name of the ERP API",
+      "type": "string"
+    },
+   "controller-app-name": {
+      "description": "Name of the controller app",
+      "type": "string"
+    },
+    "webui-app-name": {
+      "description": "Name of the WEBUI App",
+      "type": "string"
+    },
+    "openwhisk_auth": {
+      "type": "string"
+    },
+    "erp-api-coveralls_token": {
+      "type": "string"
+    },
+    "controller-coveralls_token": {
+      "type": "string"
+    },
+    "webui-coveralls_token": {
+      "type": "string"
+    },
+    "recommendation-coveralls_token": {
+      "type": "string"
+    }
+  },
+  "required": ["selected-region", "selected-organization", "selected-space", "erp-app-name", "controller-app-name", "webui-app-name"],
+  "form": [
+   {
+      "type": "validator",
+      "url": "/devops/setup/bm-helper/helper.html"
+   },
+   {
+      "type": "text",
+      "readonly": false,
+      "title": "ERP App Name",
+      "key": "erp-app-name"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": "Controller App Name",
+      "key": "controller-app-name"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": "Webui App Name",
+      "key": "webui-app-name"
+    },
+
+    {
+      "type": "table",
+      "columnCount": 3,
+      "widths": ["33%", "33%", "33%"],
+      "items": [
+        {
+          "type": "label",
+          "title": "Region"
+        },
+        {
+          "type": "label",
+          "title": "Organization"
+        },
+        {
+          "type": "label",
+          "title": "Space"
+        },
+        {
+          "type": "select",
+          "key": "selected-region"
+        },
+        {
+          "type": "select",
+          "key": "selected-organization"
+        },
+        {
+          "type": "select",
+          "key": "selected-space",
+          "readonly": false
+        }
+      ]
+    },
+
+    {
+      "type": "label",
+      "title": "The recommendation service relies on OpenWhisk actions. To deploy these actions, the pipeline requires your OpenWhisk authorization key. Make sure to enter the authorization key associated with the space where the applications will be deployed."
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": "OpenWhisk Authorization Key",
+      "key": "openwhisk_auth"
+    },
+
+    {
+      "type": "label",
+      "title": "Unit test coverage data can be sent to Coveralls as part of the Test phases of the delivery pipelines. Specify here the Coveralls tokens for each GitHub repository. You can decide to skip this step now. Later you can set the Coveralls token by editing the Test phases of the respective Delivery Pipelines."
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": "ERP Coveralls Token",
+      "key": "erp-api-coveralls_token"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": "Controller Coveralls Token",
+      "key": "controller-coveralls_token"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": "Webui Coveralls Token",
+      "key": "webui-coveralls_token"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": "Recommendation Coveralls Token",
+      "key": "recommendation-coveralls_token"
+    }
+
+  ]
+}

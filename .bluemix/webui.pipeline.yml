@@ -1,0 +1,52 @@
+---
+stages:
+- name: BUILD
+  inputs:
+  - type: git
+    branch: ${REPO_BRANCH}
+    service: ${REPO}
+  triggers:
+  - type: commit
+  properties:
+  - name: REPO_BRANCH
+    value: ${REPO_BRANCH}
+  - name: CONTROLLER_SERVICE_APP_NAME
+    value: ${CONTROLLER_SERVICE_APP_NAME}
+    type: text
+  - name: COVERALLS_SERVICE_NAME
+    value: bluemix-devops-services
+    type: text
+  - name: COVERALLS_REPO_TOKEN
+    value: ${COVERALLS_REPO_TOKEN}
+    type: secure
+  - name: REGION_ID
+    value: ${REGION_ID}
+  jobs:
+  - name: Build
+    type: builder
+    artifact_dir: dist
+    build_type: shell
+    script: |-
+      #!/bin/bash
+      ./.bluemix/pipeline-BUILD.sh
+- name: DEPLOY
+  inputs:
+  - type: job
+    stage: BUILD
+    job: Build
+  triggers:
+  - type: stage
+  properties:
+  - name: REPO_BRANCH
+    value: ${REPO_BRANCH}
+  jobs:
+  - name: Blue/Green Deploy
+    type: deployer
+    target:
+      region_id: ${REGION_ID}
+      organization: ${ORG_NAME}
+      space: ${SPACE_NAME}
+      application: ${CF_APP_NAME}
+    script: |-
+      #!/bin/bash
+      ./.bluemix/pipeline-DEPLOY.sh

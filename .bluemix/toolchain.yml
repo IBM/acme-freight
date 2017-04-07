@@ -1,0 +1,219 @@
+---
+name: "Cloud-native Toolchain for the Logistics Wizard"
+description: "With this cloud-native toolchain, you use the logistics wizard template to create a supply chain management web app and back end that consists of multiple microservices: a Controller API, an ERP API, and a WEB-UI. The toolchain is preconfigured for continuous delivery, source control, blue-green deployment, unit testing, and issue tracking.\n\nTo get started, click **Create**."
+required:
+ - deploy
+
+# Github repos
+erp-api-repo:
+  service_id: githubpublic
+  parameters:
+    repo_name: "logistics-wizard-erp"
+    repo_url: "https://github.com/strongloop/acme-freight-erp"
+    type: clone
+    has_issues: true
+
+controller-repo:
+  service_id: githubpublic
+  parameters:
+    repo_name: "logistics-wizard-controller"
+    repo_url: "https://github.com/strongloop/acme-freight-controller"
+    type: clone
+    has_issues: true
+
+webui-repo:
+  service_id: githubpublic
+  parameters:
+    repo_name: "logistics-wizard-webui"
+    repo_url: "https://github.com/strongloop/acme-freight-webui"
+    type: clone
+    has_issues: true
+
+recommendation-repo:
+  service_id: githubpublic
+  parameters:
+    repo_name: "logistics-wizard-recommendation"
+    repo_url: "https://github.com/strongloop/acme-freight-recommendation"
+    type: clone
+    has_issues: true
+
+# Pipelines
+erp-api-build-dev:
+  service_id: pipeline
+  parameters:
+    name: "erp (dev)"
+    configuration:
+      content: $file(erp-api.pipeline.yml)
+      env:
+        REPO: "erp-api-repo"
+        REPO_BRANCH: "dev"
+        CF_APP_NAME: "dev-{{deploy.parameters.erp-app-name}}"
+        COVERALLS_REPO_TOKEN: "{{deploy.parameters.erp-api-coveralls_token}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "{{deploy.parameters.selected-organization}}"
+        REGION_ID: "{{deploy.parameters.selected-region}}"
+      execute: true
+    services: ["erp-api-repo"]
+  hidden: [form, description]
+
+erp-api-build-prod:
+  service_id: pipeline
+  parameters:
+    name: "erp (prod)"
+    configuration:
+      content: $file(erp-api.pipeline.yml)
+      env:
+        REPO: "erp-api-repo"
+        REPO_BRANCH: "master"
+        CF_APP_NAME: "{{deploy.parameters.erp-app-name}}"
+        COVERALLS_REPO_TOKEN: "{{deploy.parameters.erp-api-coveralls_token}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "{{deploy.parameters.selected-organization}}"
+        REGION_ID: "{{deploy.parameters.selected-region}}"
+      execute: true
+    services: ["erp-api-repo"]
+  hidden: [form, description]
+
+controller-build-dev:
+  service_id: pipeline
+  parameters:
+    name: "controller (dev)"
+    configuration:
+      content: $file(controller.pipeline.yml)
+      env:
+        REPO: "controller-repo"
+        REPO_BRANCH: "dev"
+        COVERALLS_REPO_TOKEN: "{{deploy.parameters.controller-coveralls_token}}"
+        ERP_SERVICE_APP_NAME: "dev-{{deploy.parameters.erp-app-name}}"
+        CF_APP_NAME: "dev-{{deploy.parameters.controller-app-name}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "{{deploy.parameters.selected-organization}}"
+        REGION_ID: "{{deploy.parameters.selected-region}}"
+        OPENWHISK_AUTH: "{{deploy.parameters.openwhisk_auth}}"
+        RECOMMENDATION_PACKAGE_NAME: "dev-lwr"
+      execute: true
+    services: ["controller-repo"]
+  hidden: [form, description]
+
+controller-build-prod:
+  service_id: pipeline
+  parameters:
+    name: "controller (prod)"
+    configuration:
+      content: $file(controller.pipeline.yml)
+      env:
+        REPO: "controller-repo"
+        REPO_BRANCH: "master"
+        COVERALLS_REPO_TOKEN: "{{deploy.parameters.controller-coveralls_token}}"
+        ERP_SERVICE_APP_NAME: "{{deploy.parameters.erp-app-name}}"
+        CF_APP_NAME: "{{deploy.parameters.controller-app-name}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "{{deploy.parameters.selected-organization}}"
+        REGION_ID: "{{deploy.parameters.selected-region}}"
+        OPENWHISK_AUTH: "{{deploy.parameters.openwhisk_auth}}"
+        RECOMMENDATION_PACKAGE_NAME: "lwr"
+      execute: true
+    services: ["controller-repo"]
+  hidden: [form, description]
+
+webui-build-dev:
+  service_id: pipeline
+  parameters:
+    name: "webui (dev)"
+    configuration:
+      content: $file(webui.pipeline.yml)
+      env:
+        REPO: "webui-repo"
+        REPO_BRANCH: "dev"
+        COVERALLS_REPO_TOKEN: "{{deploy.parameters.webui-coveralls_token}}"
+        CONTROLLER_SERVICE_APP_NAME: "dev-{{deploy.parameters.controller-app-name}}"
+        CF_APP_NAME: "dev-{{deploy.parameters.webui-app-name}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "{{deploy.parameters.selected-organization}}"
+        REGION_ID: "{{deploy.parameters.selected-region}}"
+      execute: true
+    services: ["webui-repo"]
+  hidden: [form, description]
+
+webui-build-prod:
+  service_id: pipeline
+  parameters:
+    name: "webui (prod)"
+    configuration:
+      content: $file(webui.pipeline.yml)
+      env:
+        REPO: "webui-repo"
+        REPO_BRANCH: "master"
+        COVERALLS_REPO_TOKEN: "{{deploy.parameters.webui-coveralls_token}}"
+        CONTROLLER_SERVICE_APP_NAME: "{{deploy.parameters.controller-app-name}}"
+        CF_APP_NAME: "{{deploy.parameters.webui-app-name}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "{{deploy.parameters.selected-organization}}"
+        REGION_ID: "{{deploy.parameters.selected-region}}"
+      execute: true
+    services: ["webui-repo"]
+  hidden: [form, description]
+
+recommendation-build-dev:
+  service_id: pipeline
+  parameters:
+    name: "recommendation (dev)"
+    configuration:
+      content: $file(recommendation.pipeline.yml)
+      env:
+        CONTROLLER_SERVICE_APP_NAME: "dev-{{deploy.parameters.controller-app-name}}"
+        REPO: "recommendation-repo"
+        REPO_BRANCH: "dev"
+        COVERALLS_REPO_TOKEN: "{{deploy.parameters.recommendation-coveralls_token}}"
+        OPENWHISK_AUTH: "{{deploy.parameters.openwhisk_auth}}"
+        PACKAGE_NAME: "dev-lwr"
+        CLOUDANT_DATABASE: "dev-recommendations"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "{{deploy.parameters.selected-organization}}"
+        REGION_ID: "{{deploy.parameters.selected-region}}"
+      execute: true
+    services: ["recommendation-repo"]
+  hidden: [form, description]
+
+recommendation-build-prod:
+  service_id: pipeline
+  parameters:
+    name: "recommendation (prod)"
+    configuration:
+      content: $file(recommendation.pipeline.yml)
+      env:
+        CONTROLLER_SERVICE_APP_NAME: "{{deploy.parameters.controller-app-name}}"
+        REPO: "recommendation-repo"
+        REPO_BRANCH: "master"
+        COVERALLS_REPO_TOKEN: "{{deploy.parameters.recommendation-coveralls_token}}"
+        OPENWHISK_AUTH: "{{deploy.parameters.openwhisk_auth}}"
+        PACKAGE_NAME: "lwr"
+        CLOUDANT_DATABASE: "recommendations"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "{{deploy.parameters.selected-organization}}"
+        REGION_ID: "{{deploy.parameters.selected-region}}"
+      execute: true
+    services: ["recommendation-repo"]
+  hidden: [form, description]
+
+#Web IDE
+webide:
+  service_id: orion
+
+#Deployment
+deploy:
+  schema:
+    $ref: deploy.json
+  service-category: pipeline
+  parameters:
+    selected-region: "{{region}}"
+    selected-organization: "{{organization}}"
+    selected-space: "{{space}}"
+    erp-app-name: "{{name}}-erp"
+    controller-app-name: "{{name}}-controller"
+    webui-app-name: "{{name}}-webui"
+    openwhisk_auth:
+    erp-api-coveralls_token:
+    controller-coveralls_token:
+    webui-coveralls_token:
+    recommendation-coveralls_token:

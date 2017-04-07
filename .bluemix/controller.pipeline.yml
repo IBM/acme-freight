@@ -1,0 +1,66 @@
+---
+stages:
+- name: TEST
+  inputs:
+  - type: git
+    branch: ${REPO_BRANCH}
+    service: ${REPO}
+  triggers:
+  - type: commit
+  properties:
+  - name: REPO_BRANCH
+    value: ${REPO_BRANCH}
+  - name: COVERALLS_SERVICE_NAME
+    value: bluemix-devops-services
+    type: text
+  - name: COVERALLS_REPO_TOKEN
+    value: ${COVERALLS_REPO_TOKEN}
+    type: secure
+  jobs:
+  - name: Unit Test
+    type: tester
+    script: |
+      #!/bin/bash
+      ./.bluemix/pipeline-TEST.sh
+- name: BUILD
+  inputs:
+  - type: git
+    branch: ${REPO_BRANCH}
+    service: ${REPO}
+  triggers:
+  - type: stage
+  jobs:
+  - name: Build
+    type: builder
+- name: DEPLOY
+  inputs:
+  - type: job
+    stage: BUILD
+    job: Build
+  triggers:
+  - type: stage
+  properties:
+  - name: REPO_BRANCH
+    value: ${REPO_BRANCH}
+  - name: ERP_SERVICE_APP_NAME
+    value: ${ERP_SERVICE_APP_NAME}
+    type: text
+  - name: REGION_ID
+    value: ${REGION_ID}
+  - name: RECOMMENDATION_PACKAGE_NAME
+    value: ${RECOMMENDATION_PACKAGE_NAME}
+    type: text
+  - name: OPENWHISK_AUTH
+    value: ${OPENWHISK_AUTH}
+    type: secure
+  jobs:
+  - name: Blue/Green Deploy
+    type: deployer
+    target:
+      region_id: ${REGION_ID}
+      organization: ${ORG_NAME}
+      space: ${SPACE_NAME}
+      application: ${CF_APP_NAME}
+    script: |-
+      #!/bin/bash
+      ./.bluemix/pipeline-DEPLOY.sh
