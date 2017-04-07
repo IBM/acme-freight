@@ -4,11 +4,10 @@ Acme Freight Shipping is a fictional shipping and logistics company using the [L
 
 The video below demonstates how Acme Freight Shipping used the Logistics Wizard framework, along with IBM API Connect, to deliver an application allowing them to revolutionize the agility of their supply chain.
 
-[![](acme-demo.png)](https://www.youtube.com/watch?v=PPIj_dICvs8&feature=youtu.be)
+[![](docs/acme-vid.png)](https://www.youtube.com/watch?v=R1KCrJAXLvA)
 
 # Acme Freight Shipping Architecture (In Progress)
-Areas highlighted in yellow are TBD or currently changing
-![](acmefreightshipping-architecture_inprogress.001.jpeg)
+![](docs/architecture.png)
 
 # About the Logistics Wizard Framework
 
@@ -30,8 +29,6 @@ The following projects are leveraged in the overall Logistics Wizard solution:
 * [logistics-wizard-recommendation][recommendation_github_url] - makes shipment recommendations based on weather conditions. It is a set of Bluemix OpenWhisk to retrieve current weather conditions and given a weather event to generate new shipment recommendations. These recommendations could then be turned into real orders.
 
 * [logistics-wizard-controller][controller_github_url] - acts as the main controller for interaction between the services. It receives requests from the user interface and routes them to the ERP or the weather recommendation module.
-
-![Architecture Diagram](architecture.png)
 
 Visit the [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki) for a detailed breakdown of the Logistics Wizard demo architecture and deployment strategy.
 
