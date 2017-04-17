@@ -25,7 +25,7 @@ Visit the parent Logistics Wizard project [wiki](https://github.com/IBM-Bluemix/
 
 # Deploying, Exploring and Extending Acme Freight
 
-## Deploy your own Acme Freight on Bluemix (optional)
+## Deploy your own Acme Freight on Bluemix
 
 With the click of a button, you can deploy all the microservices and serverless actions required to run your own instance of Acme Freight. In addition, the toolchain comes with a development pipeline configured to automatically deploy any changes you push to GitHub. This is the perfect way to begin exploring the capabilities available on Bluemix and even extending the Acme Freight application.
 
@@ -45,7 +45,7 @@ To get started, click the Create Toolchain button. You'll be asked to login to B
 1. Click `Create`
 
 
-In about 15 minutes, the applications should finish deploying and you can start accessing your application. Go to the [Bluemix dashboard](https://console.ng.bluemix.net/dashboard/apps/) to see the status of your applications and start accessing them.
+In about 15 minutes, the microservices should finish deploying and you can start accessing your personal Acme Freight instance. Go to the [Bluemix dashboard](https://console.ng.bluemix.net/dashboard/apps/) to see the status of your applications and start accessing them.
 
 To extend the app or make changes, simply push changes to the GitHub repos that were forked for you. The Toolchain Pipeline that was deployed will take care of the rest.
 
@@ -128,15 +128,10 @@ Using the API Connect toolkit, you can not only create complex APIs for security
 ## Related Blog Posts, Videos, etc
 
 - [Microservices on Bluemix: A multi-compute approach using Cloud Foundry and OpenWhisk](https://www.ibm.com/blogs/bluemix/2017/02/microservices-multi-compute-approach-using-cloud-foundry-openwhisk/)
-
 - [Build a smarter supply chain with LoopBack](https://developer.ibm.com/bluemix/2016/07/11/building-smarter-supply-chain-developer-journey-loopback/)
-
 - [Master continuous integration and delivery with the IBM Devops Toolchain](https://developer.ibm.com/bluemix/2016/08/09/master-continuous-integration-delivery-ibm-devops-toolchain/)
-
 - [Using React and other technologies for Logistics Wizard UI](https://www.ibm.com/blogs/bluemix/2016/01/using-react/)
-
 - [Old skills, new tricks: Unit testing OpenWhisk actions in a serverless world](https://www.ibm.com/blogs/bluemix/2016/12/unit-testing-openwhisk-actions-serverless-world/)
-
 
 ### Learn more
 
