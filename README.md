@@ -9,28 +9,121 @@ The video below demonstates how Acme Freight Shipping used the Logistics Wizard 
 # Acme Freight Shipping Architecture (In Progress)
 ![](docs/architecture.png)
 
-# About the Logistics Wizard Framework
+## Acme Freight Architecture
 
-Logistics Wizard is a reimagined supply chain optimization system for the 21st century.
+The following projects are leveraged in the overall Acme Freight solution:
 
-A number of companies use on-premises applications to run their supply chain business processes. [Enterprise Resource Planning](https://en.wikipedia.org/wiki/Enterprise_resource_planning) systems are often one of them and play a critical role in the daily operations.
+* [acme-freight-erp][erp_github_url] - defines the API used by Acme Freight to access data from an ERP system. It also provides a default implementation to be used as a simulator. The simulator is a Node.js application connected to a PostgreSQL database. Through its API, it manages users (supply chain managers and retail store managers), distribution centers, retail stores and shipments.
 
-Logistics Wizard aims to simulate an environment running an ERP system and augments this ERP system with applications to improve the visibility and agility of supply chain managers. In this case, the ERP system is a simulator implementing a very small subset of the functionalities of a real ERP system. The goal is to showcase several common SaaS implementation patterns. Logistics Wizard exhibits hybrid cloud, micro-services, and big data analytics concepts that can be reused when building enterprise-level applications on Bluemix.
+* [acme-freight-webui][webui_github_url] - provides a dashboard to view ongoing shipments and alerts. There is no log-in or user credentials per se to use the deployed applications. Instead a unique demo ID is assigned to any new user trying the application. Behind each demo ID, Acme Freight creates an isolated environment with a default set of business users, distribution centers, retail stores, shipments. Refer to the [walkthrough](WALKTHROUGH.md) to get a tour of the capabilities.
+
+* [acme-freight-recommendation][recommendation_github_url] - makes shipment recommendations based on weather conditions. It is a set of Bluemix OpenWhisk to retrieve current weather conditions and given a weather event to generate new shipment recommendations. These recommendations could then be turned into real orders.
+
+* [acme-freight-controller][controller_github_url] - acts as the main controller for interaction between the services. It receives requests from the user interface and routes them to the ERP or the weather recommendation module.
+
+Visit the parent Logistics Wizard project [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki) for a detailed breakdown of the demo architecture and deployment strategy.
+
+# Deploying, Exploring and Extending the Acme Freight Application
+
+## Deploy your own Acme Freight on Bluemix (optional)
+
+With the click of a button, you can deploy all the microservices and serverless actions required to run your own instance of Acme Freight. In addition, the toolchain comes with a development pipeline configured to automatically deploy any changes you push to GitHub. This is the perfect way to begin exploring the capabilities available on Bluemix and even extending the Acme Freight application.
+
+Note that if you want to access a running instance of Acme Freight, you can access it here: 
+[http://acme-freight.mybluemix.net](http://acme-freight.mybluemix.net)
+
+  [![Deploy To Bluemix](./.bluemix/create_toolchain_button.png)](https://new-console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/IBM/acme-freight.git)
+
+To get started, click the Create Toolchain button. You'll be asked to login to Bluemix - you can start with a 30 day free trial. Once logged in, you'll be asked to go through some customization options for creating the toolchain. Follow these steps:
+
+1. Customize your toolchain name at the top - something like `acme-freight-toolchain-XXX`. Note that the URL routes are determined by the app name, so choose something unique.
+1. In the `GitHub` tab, choose "Track Deployment of Code Changes" for all of the GitHub repos
+1. Click the `Delivery Pipeline` tab
+    * Customize the names of the applications. For example, Acme-Freight-ERP for the ERP app.
+    * Retrieve your OpenWhisk Authorization Key: https://console.ng.bluemix.net/openwhisk/cli (note that the authorization key is the bit following "--auth" in the `New Authentication` section)
+    * Paste that OpenWhisk Authorization Key in the appropriate field
+1. Click `Create`
 
 
-## Logistics Wizard Architecture
+In about 15 minutes, the applications should finish deploying and you can start accessing your application. Go to the [Bluemix dashboard](https://console.ng.bluemix.net/dashboard/apps/) to see the status of your applications and start accessing them.
 
-The following projects are leveraged in the overall Logistics Wizard solution:
+To extend the app or make changes, simply push changes to the GitHub repos that were forked for you. The Toolchain Pipeline that was deployed will take care of the rest.
 
-* [logistics-wizard-erp][erp_github_url] - defines the API used by the Logistics Wizard to access data from an ERP system. It also provides a default implementation to be used as a simulator. The simulator is a Node.js application connected to a PostgreSQL database. Through its API, it manages users (supply chain managers and retail store managers), distribution centers, retail stores and shipments.
+## Local Development of ERP LoopBack app
 
-* [logistics-wizard-webui][webui_github_url] - provides a dashboard to view ongoing shipments and alerts. There is no log-in or user credentials per se to use the deployed applications. Instead a unique demo ID is assigned to any new user trying the application. Behind each demo ID, Logistics Wizard creates an isolated environment with a default set of business users, distribution centers, retail stores, shipments. Refer to the [walkthrough](WALKTHROUGH.md) to get a tour of the capabilities.
+### Prerequisites
 
-* [logistics-wizard-recommendation][recommendation_github_url] - makes shipment recommendations based on weather conditions. It is a set of Bluemix OpenWhisk to retrieve current weather conditions and given a weather event to generate new shipment recommendations. These recommendations could then be turned into real orders.
+#### Node.js
+Node.js is a platform to run JavaScript outside of the browser. The ERP layer is a LoopBack application, which is a framework to rapidly build APIs in Node.js.
 
-* [logistics-wizard-controller][controller_github_url] - acts as the main controller for interaction between the services. It receives requests from the user interface and routes them to the ERP or the weather recommendation module.
+If you do not have Node.js installed, you can find the installer for your platform at NodeJS.org.
 
-Visit the [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki) for a detailed breakdown of the Logistics Wizard demo architecture and deployment strategy.
+#### API Connect
+Included with Node.js is the Node Package Manager, which we will use to install API Connect. In your terminal, type:
+
+`npm install --global api-connect`
+
+This will install the API Connect Node.js package globally to your machine so you can work with API Connect in any local directory.
+
+### Get the ERP code on your local machine
+
+The two easiest ways to run the code locally on your computer is to either use git to clone the repository locally or to simply download a zip file. If you clone the repository, you can pull updates as they become available. If you only download the code, you lose that ability.
+
+To clone the code, simple run this command in your terminal:
+`git clone https://github.com/IBM/acme-freight-erp.git`
+
+To download the code, click this link to obtain a zip archive of the entire repository:
+https://github.com/IBM/acme-freight-erp/archive/dev.zip
+
+If you were interested in editing the code and contributing your changes upstream to the master project, you could fork the repository to your Github user account and then clone your fork.
+
+### Run the ERP code on your local machine
+
+Once you have the code on your local machine (previous step), go into that directory in your terminal. The first thing needed is to download all the project's dependencies. You can do so by typing:
+
+`npm install`
+
+Once you have your dependencies downloaded, you can run the appliation by typing:
+
+`npm start`
+
+At that point the application runs with an in-memory database. You lose all changes when you stop the app. Let's configure a persistent storage.
+
+### Using a persistent in-memory database
+
+Create the file server/datasources.local.json with the following content:
+```
+{
+ "db": {
+   "name": "db",
+   "connector": "memory",
+   "file": "in-memory-database.json"
+ }
+}
+```
+Start the application: `npm start`
+The data is now persisted in in-memory-database.json.
+
+## Testing and Exploring your APIs
+
+### Launch the APIC toolkit
+API Connect comes with a toolkit that allows you to visually create, test and deploy APIs. To launch it, simply run apic edit from the directory of your application.
+The first time you open it, it may ask you to log-in. If you have a Bluemix account, you can use it to log-in. Otherwise, make an account on Bluemix.
+```
+apic edit
+```
+
+### Start the application
+Since the APIs have already been created, you can start the application locally to access your APIs. Click the `Play` button on the bottom left to start your application. In a few seconds the application and microgateway will start. While the application serves the actual APIs, the microgateway provides a security layer and the capability to enforce custom API policies, like rate limiting.
+
+### Explore your APIs
+Next, hit the Explore button on the top right which launches a Swagger-based view (Open API Spec) of the APIs that are available. Along the left side, you should see a number of operations with the model that you created in the previous step. Let's try calling one of these operations.
+
+Scroll down to the `Demo.newDemo` operation and click `Try it`. Then hit `Call Operation`. You might see a notification indicating a CORS error. Override the CORS error by clicking the link, adding the exception, and then closing the tab. Then retry the `Call Operation`.
+
+You should see a response with some user information and a token. This token is generated as part of a session everytime the Acme Freight sample is accessed and is required to access the other endpoints.
+
+Using the API Connect toolkit, you can not only create complex APIs for security and CRUD but also test them directly on your local machine. If you want to extend the Acme Freight application, the ERP LoopBack application powered by API Connect is the perfect place to begin. 
 
 ## Related Blog Posts, Videos, etc
 
@@ -43,12 +136,6 @@ Visit the [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki) for a det
 - [Using React and other technologies for Logistics Wizard UI](https://www.ibm.com/blogs/bluemix/2016/01/using-react/)
 
 - [Old skills, new tricks: Unit testing OpenWhisk actions in a serverless world](https://www.ibm.com/blogs/bluemix/2016/12/unit-testing-openwhisk-actions-serverless-world/)
-
-# Toolchain
-
-
-
-  [![Deploy To Bluemix](./.bluemix/create_toolchain_button.png)](https://new-console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/IBM/acme-freight.git)
 
 
 ### Learn more
@@ -68,20 +155,9 @@ Visit the [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki) for a det
 [toolchains_interconnect_video_url]: https://vimeo.com/156126035/8b04b8878a
 
 
-## Contribute
-Please check out our [Contributing Guidelines](.github/CONTRIBUTING.md) for detailed information on how you can lend a hand to the Logistics Wizard demo implementation effort.
-
 ## License
 
 See [LICENSE](LICENSE) for license information.
-
-| :point_down: Repositories ... Branches :point_right: | master | dev |
-| --- | :--- | :--- |
-| [logistics-wizard-erp][erp_github_url] | [![Build Status](https://travis-ci.org/IBM-Bluemix/logistics-wizard-erp.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/logistics-wizard-erp) [![Coverage Status](https://coveralls.io/repos/github/IBM-Bluemix/logistics-wizard-erp/badge.svg?branch=master)](https://coveralls.io/github/IBM-Bluemix/logistics-wizard-erp?branch=master) | [![Build Status](https://travis-ci.org/IBM-Bluemix/logistics-wizard-erp.svg?branch=dev)](https://travis-ci.org/IBM-Bluemix/logistics-wizard-erp) [![Coverage Status](https://coveralls.io/repos/github/IBM-Bluemix/logistics-wizard-erp/badge.svg?branch=dev)](https://coveralls.io/github/IBM-Bluemix/logistics-wizard-erp?branch=dev)|
-| [logistics-wizard-controller][controller_github_url] | [![Build Status](https://travis-ci.org/IBM-Bluemix/logistics-wizard-controller.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/logistics-wizard-controller) [![Coverage Status](https://coveralls.io/repos/github/IBM-Bluemix/logistics-wizard-controller/badge.svg?branch=master)](https://coveralls.io/github/IBM-Bluemix/logistics-wizard-controller?branch=master) | [![Build Status](https://travis-ci.org/IBM-Bluemix/logistics-wizard-controller.svg?branch=dev)](https://travis-ci.org/IBM-Bluemix/logistics-wizard-controller) [![Coverage Status](https://coveralls.io/repos/github/IBM-Bluemix/logistics-wizard-controller/badge.svg?branch=dev)](https://coveralls.io/github/IBM-Bluemix/logistics-wizard-controller?branch=dev) |
-| [logistics-wizard-recommendation][recommendation_github_url] | [![Build Status](https://travis-ci.org/IBM-Bluemix/logistics-wizard-recommendation.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/logistics-wizard-recommendation) [![Coverage Status](https://coveralls.io/repos/github/IBM-Bluemix/logistics-wizard-recommendation/badge.svg?branch=master)](https://coveralls.io/github/IBM-Bluemix/logistics-wizard-recommendation?branch=master) | [![Build Status](https://travis-ci.org/IBM-Bluemix/logistics-wizard-recommendation.svg?branch=dev)](https://travis-ci.org/IBM-Bluemix/logistics-wizard-recommendation) [![Coverage Status](https://coveralls.io/repos/github/IBM-Bluemix/logistics-wizard-recommendation/badge.svg?branch=dev)](https://coveralls.io/github/IBM-Bluemix/logistics-wizard-recommendation?branch=dev)|
-| [logistics-wizard-webui][webui_github_url] | [![Build Status](https://travis-ci.org/IBM-Bluemix/logistics-wizard-webui.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/logistics-wizard-webui) [![Coverage Status](https://coveralls.io/repos/github/IBM-Bluemix/logistics-wizard-webui/badge.svg?branch=master)](https://coveralls.io/github/IBM-Bluemix/logistics-wizard-webui?branch=master) | [![Build Status](https://travis-ci.org/IBM-Bluemix/logistics-wizard-webui.svg?branch=dev)](https://travis-ci.org/IBM-Bluemix/logistics-wizard-webui) [![Coverage Status](https://coveralls.io/repos/github/IBM-Bluemix/logistics-wizard-webui/badge.svg?branch=dev)](https://coveralls.io/github/IBM-Bluemix/logistics-wizard-webui?branch=dev)|
-
 
 <!--Links-->
 [webui_github_url]: https://github.com/IBM-Bluemix/logistics-wizard-webui
