@@ -9,7 +9,7 @@ erp-api-repo:
   service_id: githubpublic
   parameters:
     repo_name: "logistics-wizard-erp"
-    repo_url: "https://github.com/strongloop/acme-freight-erp"
+    repo_url: "https://github.com/IBM/acme-freight-erp"
     type: clone
     has_issues: true
 
@@ -17,7 +17,7 @@ controller-repo:
   service_id: githubpublic
   parameters:
     repo_name: "logistics-wizard-controller"
-    repo_url: "https://github.com/strongloop/acme-freight-controller"
+    repo_url: "https://github.com/IBM/acme-freight-controller"
     type: clone
     has_issues: true
 
@@ -25,7 +25,7 @@ webui-repo:
   service_id: githubpublic
   parameters:
     repo_name: "logistics-wizard-webui"
-    repo_url: "https://github.com/strongloop/acme-freight-webui"
+    repo_url: "https://github.com/IBM/acme-freight-webui"
     type: clone
     has_issues: true
 
@@ -33,7 +33,7 @@ recommendation-repo:
   service_id: githubpublic
   parameters:
     repo_name: "logistics-wizard-recommendation"
-    repo_url: "https://github.com/strongloop/acme-freight-recommendation"
+    repo_url: "https://github.com/IBM/acme-freight-recommendation"
     type: clone
     has_issues: true
 
