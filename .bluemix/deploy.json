@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Logistics Wizard Delivery Pipeline Setup",
-  "description": "Deployment of the Logistics Wizard demo",
+  "title": "Acme Freight Delivery Pipeline Setup",
+  "description": "Deployment of the Acme Freight demo",
   "longDescription": "The Delivery Pipeline for DevOps Services allows you to automate your continuous deployment setup. To avoid conflicts, make sure to use unique application names. We recommend to use a common prefix like your name or initials.",
   "type": "object",
   "properties": {
@@ -30,18 +30,6 @@
       "type": "string"
     },
     "openwhisk_auth": {
-      "type": "string"
-    },
-    "erp-api-coveralls_token": {
-      "type": "string"
-    },
-    "controller-coveralls_token": {
-      "type": "string"
-    },
-    "webui-coveralls_token": {
-      "type": "string"
-    },
-    "recommendation-coveralls_token": {
       "type": "string"
     }
   },
@@ -102,7 +90,6 @@
         }
       ]
     },
-
     {
       "type": "label",
       "title": "The recommendation service relies on OpenWhisk actions. To deploy these actions, the pipeline requires your OpenWhisk authorization key. Make sure to enter the authorization key associated with the space where the applications will be deployed."
@@ -112,36 +99,6 @@
       "readonly": false,
       "title": "OpenWhisk Authorization Key",
       "key": "openwhisk_auth"
-    },
-
-    {
-      "type": "label",
-      "title": "Unit test coverage data can be sent to Coveralls as part of the Test phases of the delivery pipelines. Specify here the Coveralls tokens for each GitHub repository. You can decide to skip this step now. Later you can set the Coveralls token by editing the Test phases of the respective Delivery Pipelines."
-    },
-    {
-      "type": "text",
-      "readonly": false,
-      "title": "ERP Coveralls Token",
-      "key": "erp-api-coveralls_token"
-    },
-    {
-      "type": "text",
-      "readonly": false,
-      "title": "Controller Coveralls Token",
-      "key": "controller-coveralls_token"
-    },
-    {
-      "type": "text",
-      "readonly": false,
-      "title": "Webui Coveralls Token",
-      "key": "webui-coveralls_token"
-    },
-    {
-      "type": "text",
-      "readonly": false,
-      "title": "Recommendation Coveralls Token",
-      "key": "recommendation-coveralls_token"
     }
-
   ]
 }

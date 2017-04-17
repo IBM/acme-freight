@@ -48,7 +48,7 @@ Visit the [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki) for a det
 
 
 
-  [![Deploy To Bluemix](./.bluemix/create_toolchain_button.png)](https://new-console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/strongloop/acme-freight-toolchain.git)
+  [![Deploy To Bluemix](./.bluemix/create_toolchain_button.png)](https://new-console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/IBM/acme-freight.git)
 
 
 ### Learn more

@@ -1,6 +1,6 @@
 ---
-name: "Cloud-native Toolchain for the Logistics Wizard"
-description: "With this cloud-native toolchain, you use the logistics wizard template to create a supply chain management web app and back end that consists of multiple microservices: a Controller API, an ERP API, and a WEB-UI. The toolchain is preconfigured for continuous delivery, source control, blue-green deployment, unit testing, and issue tracking.\n\nTo get started, click **Create**."
+name: "Cloud-native Toolchain for the Acme Freight sample"
+description: "With this cloud-native toolchain, you use the acme freight template to create a supply chain management web app and back end that consists of multiple microservices: a Controller API, an ERP API, and a WEB-UI. The toolchain is preconfigured for continuous delivery, source control, blue-green deployment, unit testing, and issue tracking.\n\nTo get started, click **Create**."
 required:
  - deploy
 
@@ -8,7 +8,7 @@ required:
 erp-api-repo:
   service_id: githubpublic
   parameters:
-    repo_name: "logistics-wizard-erp"
+    repo_name: "acme-freight-erp"
     repo_url: "https://github.com/IBM/acme-freight-erp"
     type: clone
     has_issues: true
@@ -16,7 +16,7 @@ erp-api-repo:
 controller-repo:
   service_id: githubpublic
   parameters:
-    repo_name: "logistics-wizard-controller"
+    repo_name: "acme-freight-controller"
     repo_url: "https://github.com/IBM/acme-freight-controller"
     type: clone
     has_issues: true
@@ -24,7 +24,7 @@ controller-repo:
 webui-repo:
   service_id: githubpublic
   parameters:
-    repo_name: "logistics-wizard-webui"
+    repo_name: "acme-freight-webui"
     repo_url: "https://github.com/IBM/acme-freight-webui"
     type: clone
     has_issues: true
@@ -32,7 +32,7 @@ webui-repo:
 recommendation-repo:
   service_id: githubpublic
   parameters:
-    repo_name: "logistics-wizard-recommendation"
+    repo_name: "acme-freight-recommendation"
     repo_url: "https://github.com/IBM/acme-freight-recommendation"
     type: clone
     has_issues: true
