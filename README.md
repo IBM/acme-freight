@@ -23,7 +23,7 @@ The following projects are leveraged in the overall Acme Freight solution:
 
 Visit the parent Logistics Wizard project [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki) for a detailed breakdown of the demo architecture and deployment strategy.
 
-# Deploying, Exploring and Extending the Acme Freight Application
+# Deploying, Exploring and Extending Acme Freight
 
 ## Deploy your own Acme Freight on Bluemix (optional)
 
