@@ -9,6 +9,7 @@ To start learning more about Acme Freight and the technology behind it, jump to 
 
 * [Deploy your own Acme Freight with IBM DevOps Toolchain](TOOLCHAIN-README.md) (15-20 min)
 * [Develop APIs locally with IBM API Connect and the Acme Freight ERP app](APIC-ERP-README.md) (30+ min)
+* [Creating an API for your OpenWhisk actions on Bluemix](OW-NAPI-README.md) (30 min)
 
 ## Acme Freight Overview
 The video below demonstates how Acme Freight Shipping used the Logistics Wizard framework, along with IBM API Connect, to deliver an application allowing them to revolutionize the agility of their supply chain.
