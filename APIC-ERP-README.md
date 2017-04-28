@@ -10,7 +10,7 @@ If you do not have Node.js installed, you can find the installer for your platfo
 #### API Connect
 Included with Node.js is the Node Package Manager, which we will use to install API Connect. In your terminal, type:
 
-`npm install --global api-connect`
+`npm install --global apiconnect`
 
 This will install the API Connect Node.js package globally to your machine so you can work with API Connect in any local directory.
 
