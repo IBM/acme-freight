@@ -2,6 +2,10 @@
 
 Acme Freight Shipping is a fictional shipping and logistics company using the [Logistics Wizard](https://github.com/ibm-bluemix/logistics-wizard) application framework to reimagine supply chain optimization systems for the 21st century.
 
+Acme Freight uses an application, called [Logistic Wizard](https://github.com/ibm-bluemix/logistics-wizard) to manage some of its assets. The application is composed of several microservices, including three Cloud Foundry applications and multiple OpenWhisk actions.
+
+Acme Freight uses LoopBack, an open source Node.js framework, built for quickly creating and exposing APIs for new and existing applications and data. LoopBack enables Acme Freight to create an application that integrates with their existing ERP system, and API Connect allows them to expose data via a managed API.
+
 
 ## Hands-on Content and Tutorials
 
