@@ -7,13 +7,18 @@ Acme Freight uses an application, called [Logistic Wizard](https://github.com/ib
 Acme Freight uses LoopBack, an open source Node.js framework, built for quickly creating and exposing APIs for new and existing applications and data. LoopBack enables Acme Freight to create an application that integrates with their existing ERP system, and API Connect allows them to expose data via a managed API.
 
 
-## Hands-on Content and Tutorials
+## Acme Freight Tutorials
 
-To start learning more about Acme Freight and the technology behind it, jump to one of the self-contained tutorials below.
+To start learning more about Acme Freight and the technology behind it, jump to one of the tutorials below.
 
-* [Deploy your own Acme Freight with IBM DevOps Toolchain](TOOLCHAIN-README.md) (15-20 min)
-* [Develop APIs locally with IBM API Connect and the Acme Freight ERP app](APIC-ERP-README.md) (30+ min)
-* [Creating an API for your OpenWhisk actions on Bluemix](OW-NAPI-README.md) (30 min)
+### Deploy Acme Freight
+* [Deploy your own Acme Freight with IBM DevOps Toolchain](TOOLCHAIN-README.md) 
+
+### Rapidly Create APIs with the Node API Framework, LoopBack 
+* [Use LoopBack and API Connect to rapidly expose ERP data with APIs](APIC-ERP-README.md) 
+
+### Create APIs for OpenWhisk actions in just a few clicks
+* [Create an API for your OpenWhisk actions on Bluemix](OW-NAPI-README.md) 
 
 ## Acme Freight Overview
 The video below demonstates how Acme Freight Shipping used the Logistics Wizard framework, along with IBM API Connect, to deliver an application allowing them to revolutionize the agility of their supply chain.
