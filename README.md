@@ -1,4 +1,4 @@
-# Acme Freight Shipping
+# The Acme Freight Journey
 
 Acme Freight Shipping is a fictional shipping and logistics company using the [Logistics Wizard](https://github.com/ibm-bluemix/logistics-wizard) application framework to reimagine supply chain optimization systems for the 21st century.
 
@@ -6,6 +6,7 @@ Acme Freight uses an application, called [Logistic Wizard](https://github.com/ib
 
 Acme Freight uses LoopBack, an open source Node.js framework, built for quickly creating and exposing APIs for new and existing applications and data. LoopBack enables Acme Freight to create an application that integrates with their existing ERP system, and API Connect allows them to expose data via a managed API.
 
+*For more on the Acme Freight journey and the technologies behind it, [visit the Acme Freight journey website](http://developer.ibm.com/code/journey/unlock-enterprise-data-using-apis?cm_mmc=github-code-_-native-_-acme-_-journey&cm_mmca1=000019RT&cm_mmca2=10004796).*
 
 ## Acme Freight Tutorials
 
@@ -27,7 +28,7 @@ The video below demonstates how Acme Freight Shipping used the Logistics Wizard 
 
 
 ## Acme Freight Architecture
-![](docs/architecture.png)
+![](acme-architecture.png)
 
 The following projects are leveraged in the overall Acme Freight solution:
 
@@ -41,38 +42,12 @@ The following projects are leveraged in the overall Acme Freight solution:
 
 Visit the parent Logistics Wizard project [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki) for a detailed breakdown of the demo architecture and deployment strategy.
 
-## Related Blog Posts, Videos, etc
 
-- [Microservices on Bluemix: A multi-compute approach using Cloud Foundry and OpenWhisk](https://www.ibm.com/blogs/bluemix/2017/02/microservices-multi-compute-approach-using-cloud-foundry-openwhisk/)
-- [Build a smarter supply chain with LoopBack](https://developer.ibm.com/bluemix/2016/07/11/building-smarter-supply-chain-developer-journey-loopback/)
-- [Master continuous integration and delivery with the IBM Devops Toolchain](https://developer.ibm.com/bluemix/2016/08/09/master-continuous-integration-delivery-ibm-devops-toolchain/)
-- [Using React and other technologies for Logistics Wizard UI](https://www.ibm.com/blogs/bluemix/2016/01/using-react/)
-- [Old skills, new tricks: Unit testing OpenWhisk actions in a serverless world](https://www.ibm.com/blogs/bluemix/2016/12/unit-testing-openwhisk-actions-serverless-world/)
-
-### Learn more
-
-* [Bluemix DevOps Services][bluemix_devops_url]
-* [Bluemix Toolchains Documentation][toolchains_overview_url]
-* [InterConnect 2016 video recording][toolchains_interconnect_video_url]
-
-<!--Links-->
-[bluemix_devops_url]: https://new-console.ng.bluemix.net/devops
-[github_controller_url]: https://github.com/strongloop/acme-freight-controller
-[github_erp_url]: https://github.com/strongloop/acme-freight-erp
-[github_webui_url]: https://github.com/strongloop/acme-freight-webui
-[github_recommendation_url]: https://github.com/strongloop/acme-freight-recommendation
-[coveralls_url]: https://coveralls.io/
-[toolchains_overview_url]: https://new-console.ng.bluemix.net/docs/toolchains/toolchains_overview.html
-[toolchains_interconnect_video_url]: https://vimeo.com/156126035/8b04b8878a
+## Resources
+[The Acme Freight Journey](http://developer.ibm.com/code/journey/unlock-enterprise-data-using-apis?cm_mmc=github-code-_-native-_-acme-_-journey&cm_mmca1=000019RT&cm_mmca2=10004796)
 
 
 ## License
 
 See [LICENSE](LICENSE) for license information.
 
-<!--Links-->
-[webui_github_url]: https://github.com/IBM-Bluemix/logistics-wizard-webui
-[controller_github_url]: https://github.com/IBM-Bluemix/logistics-wizard-controller
-[erp_github_url]: https://github.com/IBM-Bluemix/logistics-wizard-erp
-[recommendation_github_url]: https://github.com/IBM-Bluemix/logistics-wizard-recommendation
-[toolchain_github_url]: https://github.com/IBM-Bluemix/logistics-wizard-toolchain
