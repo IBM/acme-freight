@@ -45,6 +45,7 @@ Visit the parent Logistics Wizard project [wiki](https://github.com/IBM-Bluemix/
 
 ## Resources
 [The Acme Freight Journey](http://developer.ibm.com/code/journey/unlock-enterprise-data-using-apis?cm_mmc=github-code-_-native-_-acme-_-journey&cm_mmca1=000019RT&cm_mmca2=10004796)
+[Unlock Enterprise Data with LoopBack](https://developer.ibm.com/code/2017/05/04/unlock-enterprise-data-with-loopback?cm_mmc=github-code-_-native-_-acme-_-related-content&cm_mmca1=000019RT&cm_mmca2=10004796)
 
 
 ## License
