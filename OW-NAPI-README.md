@@ -1,11 +1,12 @@
-Creating an API for your OpenWhisk actions on Bluemix
----
+## Create secured APIs for your OpenWhisk actions on Bluemix
 
-Once the toolchain is installed, you will have 2 packages of Open Whisk actions one for development and one for production. You can view them in the [OpenWhisk dashboard on Bluemix](https://console.ng.bluemix.net/openwhisk/manage/actions). Each package has 5 actions that drive the recommendations aspect of the application.
+### Creating an API for your OpenWhisk actions on Bluemix
 
-![OpenWhisk Actions](docs/actions.png)
+Once the [toolchain is installed](TOOLCHAIN-README.md), you will have 2 packages of Open Whisk actions one for development and one for production. You can view them in the [OpenWhisk dashboard on Bluemix](https://console.ng.bluemix.net/openwhisk/manage/actions). Each package has 5 actions that drive the recommendations aspect of the application.
 
-### Create API and Endpoints
+<img src="docs/actions.png" alt="OpenWhisk actions" width="600">
+
+#### Create API and Endpoints
 
 To expose these OpenWhisk actions as a part of an API, we need to click the APIs link near the top of the Bluemix OpenWhisk interface. And then click on the Create an OpenWhisk API button.
 
@@ -17,27 +18,29 @@ To expose these OpenWhisk actions as a part of an API, we need to click the APIs
 
 Name each endpoint to correspond with each OpenWhisk action. Choose Post as your Verb. Below is an example:
 
-![Create operation endpoings](docs/endpoint-modal.png)
+<img src="docs/endpoint-modal.png" alt="Create operation endpoints" width="500">
+
 
 Repeat above to make an endpoint corresponding with each OpenWhisk action.
 
-You're resulting page should look like the image below:
+Your resulting page should look like the image below:
 
-![API create](docs/create-api.png)
+<img src="docs/create-api.png" alt="API create" width="700">
 
 Scroll down
 
-- Enable the "Require ... via API key" option; default options are suitable
+- Enable the "Require ... via API key" option; default options are suitable.
+- Ensure the "Method" is "API key only"
 - Make sure "Enable CORS..." option is checked
 - Click Save button
 
-![API save](docs/save-api.png)
+<img src="docs/save-api.png" alt="API save" width="700">
 
-### Create API Key
+#### Create API Key
 
 To create an API key, which is required to access the endpoints, click the "Sharing" link on the left of your screen shown below:
 
-![Sharing](docs/sharing.png)
+<img src="docs/sharing.png" alt="Sharing" width="700">
 
 From this screen, click the "Create API Key" button.
 
@@ -45,11 +48,37 @@ In the Create API Key screen, do the following:
 
 - Name your API key
 - Take note of your API key
-- Click the show checkbox and take note of your API key secret
 - Click "Create":
 
-![Create API Key](docs/create-api-key.png)
+<img src="docs/create-api-key.png" alt="Create API Key" width="500">
 
-The last thing you'll need is the full path to your APIs, which you can find on the summary page (shown below as your 'Route'), along with all sorts of other useful information, including analytics:
+The last thing you'll need is the full path to your APIs, which you can find on the summary page (shown below as your 'Route'). Take a note of this as well for the next step.
 
-![Summary](docs/summary.png)
+<img src="docs/summary.png" alt="Summary" width="700">
+
+### Configure the controller application to use your newly created secure API endpoints
+
+Now that we've created the secure endpoints, we need to update the Acme Freight microservice that calls the OpenWhisk actions. The controller application already has the code to call a secured endpoint; we simply need to tell the application your secured API URL and API key that you created earlier.
+
+Jump to your [Bluemix DevOps toolchains](https://console.ng.bluemix.net/devops/toolchains) and click the toolchain you created for Acme Freight. You should then see the following screen, click on the square under `Deliver` for the `controller (dev)` pipeline:
+
+<img src="docs/toolchains.png" alt="Toolchains" width="700">
+
+ Then click the `Configure Stage` option for the `Deploy` step of the pipeline:
+
+<img src="docs/configure-deploy.png" alt="Configure Deploy" width="300">
+
+Under the `Environment Properties` tab, add two additional `Text Property` fields for `OW_API_KEY` and `OW_API_URL`. Note that it is case sensitive. It should look like this:
+
+<img src="docs/deploy-env.png" alt="Deploy environment" width="500">
+
+Then hit save, go back to the pipeline and hit the `Run Stage` button:
+
+<img src="docs/run-stage.png" alt="Run stage" width="300">
+
+Repeat these steps for the `controller (prod)` pipeline on your toolchain.
+
+With just those few clicks, the Acme Freight application is now accessing secured OpenWhisk actions! Here are some of the advantages to securing our OpenWhisk actions:
+- Set a safe rate-limit setting to protect your application (and your credit card) from malicious spamming against your OpenWhisk actions.
+- Reveal your OpenWhisk endpoints to other consumer applications, not just Acme Freight. By creating API keys for each application that needs access to these APIs, you can individually track and manage consumers and even revoke access if ever necessary.
+- Utilize the analytics view to see how often your APIs are being called and how long they take to fulfill. This enables you to track down latency issues as they arise.

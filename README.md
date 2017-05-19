@@ -19,8 +19,8 @@ To start learning more about Acme Freight and the technology behind it, jump to 
 ### Rapidly Create APIs with the Node API Framework, LoopBack 
 * [Use LoopBack and API Connect to rapidly expose ERP data with APIs](APIC-ERP-README.md) 
 
-### Create APIs for OpenWhisk actions in just a few clicks
-* [Create an API for your OpenWhisk actions on Bluemix](OW-NAPI-README.md) 
+### Create secured APIs for OpenWhisk actions in just a few clicks
+* [Create secured APIs for your OpenWhisk actions on Bluemix](OW-NAPI-README.md) 
 
 ## Acme Freight Overview
 The video below demonstates how Acme Freight Shipping used the Logistics Wizard framework, along with IBM API Connect, to deliver an application allowing them to revolutionize the agility of their supply chain.
