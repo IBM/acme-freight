@@ -20,12 +20,6 @@ stages:
   properties:
   - name: REPO_BRANCH
     value: ${REPO_BRANCH}
-  - name: COVERALLS_SERVICE_NAME
-    value: bluemix-devops-services
-    type: text
-  - name: COVERALLS_REPO_TOKEN
-    value: ${COVERALLS_REPO_TOKEN}
-    type: secure
   jobs:
   - name: Unit Test
     type: tester
