@@ -13,12 +13,6 @@ stages:
   - name: CONTROLLER_SERVICE_APP_NAME
     value: ${CONTROLLER_SERVICE_APP_NAME}
     type: text
-  - name: COVERALLS_SERVICE_NAME
-    value: bluemix-devops-services
-    type: text
-  - name: COVERALLS_REPO_TOKEN
-    value: ${COVERALLS_REPO_TOKEN}
-    type: secure
   - name: REGION_ID
     value: ${REGION_ID}
   jobs:
