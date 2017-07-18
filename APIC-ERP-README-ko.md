@@ -1,5 +1,7 @@
 ## ERP LoopBack 앱을 로컬에서 개발하기
 
+*Read this in other languages: [English](APIC-ERP-README.md).*
+
 ### 이 과정의 준비 사항
 
 #### Node.js
