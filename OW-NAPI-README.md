@@ -1,5 +1,7 @@
 ## Create secured APIs for your OpenWhisk actions on Bluemix
 
+*Read this in other languages: [한국어](OW-NAPI-README-ko.md).*
+
 ### Creating an API for your OpenWhisk actions on Bluemix
 
 Once the [toolchain is installed](TOOLCHAIN-README.md), a set of OpenWhisk actions will get deployed to the region and space you chose when creating the toolchain. You can view them in the [OpenWhisk dashboard on Bluemix](https://console.ng.bluemix.net/openwhisk/manage/actions). Whenever a storm is simulated, the OpenWhisk actions are utilized to generate recommendations.
