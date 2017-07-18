@@ -1,5 +1,7 @@
 ## Local Development of ERP LoopBack app
 
+*Read this in other languages: [한국어](APIC-ERP-README-ko.md).*
+
 ### Prerequisites
 
 #### Node.js
