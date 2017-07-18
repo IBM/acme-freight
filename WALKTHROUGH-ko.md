@@ -1,6 +1,6 @@
 # Acme Freight 둘러보기
 
-이번 편에서는 https://acme-freight.mybluemix.net/ 에 있는 공유 실행 환경을 사용하거나 [툴체인](https://github.com/IBM/acme-freight/blob/master/TOOLCHAIN-README.md)을 사용해 배포된 여러분 자신의 환경을 사용할 수도 있습니다.
+이번 편에서는 https://acme-freight.mybluemix.net/ 에 있는 공유 실행 환경을 사용하거나 [툴체인](https://github.com/IBM/acme-freight/blob/master/TOOLCHAIN-README-ko.md)을 사용해 배포된 여러분 자신의 환경을 사용할 수도 있습니다.
 
 이제 여러분을 공급망 관리 매니저라고 가정하겠습니다. 여러분은 여러 물류센터, 소매점과 여러 배송 업무를 소유한 세계적 규모의 유통 회사에서 근무하고 있습니다.  
 
