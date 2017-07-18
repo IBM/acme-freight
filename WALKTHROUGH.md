@@ -1,5 +1,7 @@
 # Acme Freight Walkthrough
 
+*Read this in other languages: [한국어](WALKTHROUGH-ko.md).*
+
 For this walkthrough, you can use the shared deployment available at https://acme-freight.mybluemix.net/ or deploy your own version using [the toolchain](https://github.com/IBM/acme-freight/blob/master/TOOLCHAIN-README.md).
 
 You are going to play the role of a supply chain manager. You are working with a global retail company with multiple distribution centers, retail stores and a bunch of ongoing shipments.
