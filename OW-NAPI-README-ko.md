@@ -1,5 +1,7 @@
 ## Bluemix에서 OpenWhisk 액션을 위한 보안된 APIs 생성하기
 
+*Read this in other languages: [English](OW-NAPI-README.md).*
+
 ### Bluemix에서 OpenWhisk 액션을 위한 API 생성하기
 
 [툴체인 인스톨하기](TOOLCHAIN-README.md)를 마치면, 툴체인을 생성할 때 선택했던 bluemix 상의 region(지역) 및 space(공간)에 OpenWhisk 액션들이 배포됩니다. [Bluemix 상 OpenWhisk 대시보드](https://console.ng.bluemix.net/openwhisk/manage/actions)에서 해당 내용을 확인하실 수 있습니다. 폭풍우가 발생하는 상황의 시물레이션이 실행 될 때 마다, OpenWhisk 액션들이 실행되어, 필요한 조치에 대한 추천을 하게 됩니다. 
