@@ -1,6 +1,6 @@
 ## Bluemix에서 OpenWhisk 액션을 위한 보안된 APIs 생성하기
 
-*Read this in other languages: [English](OW-NAPI-README.md).*
+*다른 언어로 보기: [English](OW-NAPI-README.md).*
 
 ### Bluemix에서 OpenWhisk 액션을 위한 API 생성하기
 
