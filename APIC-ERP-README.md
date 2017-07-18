@@ -12,6 +12,8 @@ Included with Node.js is the Node Package Manager, which we will use to install 
 
 `npm install --global apiconnect`
 
+<img src="docs/apic-erp-images/npm-install.png" alt="npm install" width="500">
+
 This will install the API Connect Node.js package globally to your machine so you can work with API Connect in any local directory.
 
 ### Get the ERP code on your local machine
@@ -35,6 +37,8 @@ Once you have the code on your local machine (previous step), go into that direc
 Once you have your dependencies downloaded, you can run the appliation by typing:
 
 `npm start`
+
+<img src="docs/apic-erp-images/npm-start.png" alt="npm start" width="500">
 
 At that point the application runs with an in-memory database. You lose all changes when you stop the app. Let's configure a persistent storage.
 
@@ -62,14 +66,21 @@ The first time you open it, it may ask you to log-in. If you have a Bluemix acco
 apic edit
 ```
 
+<img src="docs/apic-erp-images/apic-edit.png" alt="apic edit" width="700">
+
+
 ### Start the application
 Since the APIs have already been created, you can start the application locally to access your APIs. Click the `Play` button on the bottom left to start your application. In a few seconds the application and microgateway will start. While the application serves the actual APIs, the microgateway provides a security layer and the capability to enforce custom API policies, like rate limiting.
+
+<img src="docs/apic-erp-images/start-app.png" alt="start app" width="500">
 
 ### Explore your APIs
 Next, hit the Explore button on the top right which launches a Swagger-based view (Open API Spec) of the APIs that are available. Along the left side, you should see a number of operations with the model that you created in the previous step. Let's try calling one of these operations.
 
 Scroll down to the `Demo.newDemo` operation and click `Try it`. Then hit `Call Operation`. You might see a notification indicating a CORS error. Override the CORS error by clicking the link, adding the exception, and then closing the tab. Then retry the `Call Operation`.
 
-You should see a response with some user information and a token. This token is generated as part of a session everytime the Acme Freight sample is accessed and is required to access the other endpoints.
+<img src="docs/apic-erp-images/try-it.png" alt="call operation" width="700">
+
+You should see a response with some user information and a GUID. This GUID is represents the session that is generated everytime the Acme Freight sample is accessed. The GUID is then used to obtain an access token (`Demo.loginAs`) which allows access to the other endpoints.
 
 Using the API Connect toolkit, you can not only create complex APIs for security and CRUD but also test them directly on your local machine. If you want to extend the Acme Freight application, the ERP LoopBack application powered by API Connect is the perfect place to begin.
