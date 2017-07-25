@@ -15,7 +15,7 @@ Acme Freight의 실행 중인 인스턴스를 확인하려면 이 곳에 엑세�
 1. `GitHub` 탭에서 "Track Deployment of Code Changes" 을 선택하면 모든 GitHub 저장소의 코드 변경을 추적합니다.
 1. `Delivery Pipeline` 탭을 클릭하고
     * 애플리케이션 이름을 개별 설정합니다. 가령 ERP 앱은 Acme-Freight-ERP라고 입력하는 식으로요.
-* OpenWhisk Authorization 키를 검색합니다: https://console.ng.bluemix.net/openwhisk/cli (권한 키 정보는 `네임스페이스 및 권한 키`섹션의 "--auth" 다음에 위치합니다)
+    * OpenWhisk Authorization 키를 검색합니다: https://console.ng.bluemix.net/openwhisk/cli (권한 키 정보는 `네임스페이스 및 권한 키`섹션의 "--auth" 다음에 위치합니다)
     * 해당 OpenWhisk Authorization 키를 해당 필드에 복사하여 붙입니다.
 1. `Create`을 클릭합니다
 
