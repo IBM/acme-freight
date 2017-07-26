@@ -4,7 +4,7 @@
 
 버튼 클릭 한 번으로 여러분은 Acme Freight 인스턴스에 필요한 모든 마이크로서비스와 서버리스 액션을 배포할 수 있습니다. 더불어, 여러분이 Github에 푸쉬하는 변경사항들을 자동으로 배포하도록 사전 설정된 개발 파이프라인 툴체인도 제공됩니다. 이를 통해, Bluemix의 DevOps 환경을 경험하게 되실 것이며, 동시에 Acme Freight 애플리케이션의 기능도 확장할 수 있습니다.
 
-Acme Freight의 실행 중인 인스턴스를 확인하려면 이 곳에 엑세스하십시오: 
+Acme Freight의 실행 중인 인스턴스를 확인하려면 이 곳에 엑세스하십시오:
 [http://acme-freight.mybluemix.net](http://acme-freight.mybluemix.net)
 
   [![Deploy To Bluemix](./.bluemix/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy?repository=https%3A%2F%2Fgithub.com%2FIBM%2Facme-freight.git&cm_mmc=github-readme--native-_-acme-_-create-toolchain&cm_mmca1=000019RT&cm_mmca2=10004796)
@@ -20,6 +20,6 @@ Acme Freight의 실행 중인 인스턴스를 확인하려면 이 곳에 엑세�
 1. `Create`을 클릭합니다
 
 
-15분 정도면, 마이크로서비스의 배포가 끝나고 여러분은 자신만의 Acme Freight 인스턴스를 엑세스할 수 있습니다. [Bluemix 대시보드](https://console.ng.bluemix.net/dashboard/apps/)로 이동하여 애플리케이션의 상태를 확인하고 엑세스합니다. 
+15분 정도면, 마이크로서비스의 배포가 끝나고 여러분은 자신만의 Acme Freight 인스턴스를 엑세스할 수 있습니다. [Bluemix 대시보드](https://console.ng.bluemix.net/dashboard/apps/)로 이동하여 애플리케이션의 상태를 확인하고 엑세스합니다.
 
 앱을 확장하거나 변경하려면, 여러분에게 포크된 GitHub 저장소에 변경 사항을 푸쉬합니다. 배포된 툴체인 파이프라인이 알아서 나머지 처리를 완료합니다.
