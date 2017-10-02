@@ -1,0 +1,31 @@
+{
+  "name": "Unlock enterprise data using APIs",
+  "description": "Meet Acme Freight, a fictional logistics company that uses LoopBack and API Connect to address a common use case: the need to leverage existing enterprise assets using APIs. Using LoopBack, an open source Node.js framework, Acme Freight exposes assets located in an Enterprise Resource Planning (ERP) system. It delivers them securely to new and existing applications using a microservices architecture managed within a single interface in API Connect.",
+  "thumbnailURL": "blueprint/thumbnail.svg",
+  "appIconURL": "blueprint/appicon.svg",
+  "previewURLs": [],
+  "type": "WEB",
+  "tags": [
+    "appservice"
+  ],
+  "generators": {
+    "node": [
+      "generator-starterkit-content-downloader",
+      "generator-ibm-cloud-enablement"
+    ]
+  },
+  "generatorOptions": {
+    "generator-starterkit-content-downloader": {
+      "registry": "https://npm-registry.whitewater.ibm.com",
+      "scope": "@arf",
+      "version": "latest"
+    },
+    "generator-ibm-cloud-enablement": {
+      "version": "latest"
+    }
+  },
+  "requiredCapabilities": [],
+  "requiredCapabilitiesURLs": {},
+  "servicePlans": {},
+  "email": "cloud@us.ibm.com"
+}
