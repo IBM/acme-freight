@@ -2,13 +2,13 @@
 
 *다른 언어로 보기: [English](README.md).*
 
+*Acme Freight社의 개발과정과 그 이면의 기술에 대한 자세한 내용을 알아보시려면 , [Acme Freight pattern 웹사이트](http://developer.ibm.com/code/journey/unlock-enterprise-data-using-apis?cm_mmc=github-code-_-native-_-acme-_-journey&cm_mmca1=000019RT&cm_mmca2=10004796)를 방문하십시오.*
+
 Acme Freight Shipping은 21세기에 걸맞은 공급망 최적화 시스템 구현을 위해  [Logistics Wizard](https://github.com/ibm-bluemix/logistics-wizard) 애플리케이션 프레임워크를 사용하는 것으로 설정된 가상의 운송물류 회사입니다.
 
 Acme Freight社는 기업 내 자산 일부를 관리하기 위해 [Logistic Wizard](https://github.com/ibm-bluemix/logistics-wizard) 라고 불리는 애플리케이션을 사용합니다. 이 애플리케이션은 3개의 Cloud Foundry 애플리케이션과 다수의 OpenWhisk 액션을 포함한 여러 마이크로서비스로 구성됩니다.
 
 Acme Freight는 신규 애플리케이션과 기존 애플리케이션, 데이터를 위한 API를 빠르게 생성하고 노출시키기 위해 개발된 오픈소스 Node.js 프레임워크 LoopBack을 사용합니다. Acme Freight社는 LoopBack을 사용해 기존 ERP시스템과 통합된 애플리케이션을 구축하며, APIC Connect은 관리되는 API를 통해 데이터가 공개되도록 합니다.
-
-*Acme Freight社의 개발과정과 그 이면의 기술에 대한 자세한 내용을 알아보시려면 , [Acme Freight journey 웹사이트](http://developer.ibm.com/code/journey/unlock-enterprise-data-using-apis?cm_mmc=github-code-_-native-_-acme-_-journey&cm_mmca1=000019RT&cm_mmca2=10004796)를 방문하십시오.*
 
 ## Acme Freight 튜토리얼
 
