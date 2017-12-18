@@ -8,7 +8,7 @@ Acme Freight 使用了一个名为 [Logistic Wizard](https://github.com/ibm-blue
 
 Acme Freight 使用了开源 Node.js 框架 LoopBack——一个为新的和现有的应用程序和数据快速创建并暴露 API的程序框架。LoopBack 使 Acme Freight 能够创建一个与其现有 ERP 系统集成的应用程序，而API Connect 使他们能够通过托管的 API 暴露数据。
 
-*有关 Acme Freight Code Pattern及其相关技术的更多信息，请访问 [Acme Freight Journey网站](http://developer.ibm.com/code/journey/unlock-enterprise-data-using-apis?cm_mmc=github-code-_-native-_-acme-_-journey&cm_mmca1=000019RT&cm_mmca2=10004796)。*
+*有关 Acme Freight Code Pattern及其相关技术的更多信息，请访问 [Acme Freight Code Pattern 网站](http://developer.ibm.com/code/journey/unlock-enterprise-data-using-apis?cm_mmc=github-code-_-native-_-acme-_-journey&cm_mmca1=000019RT&cm_mmca2=10004796)。*
 
 ## Acme Freight 教程
 
