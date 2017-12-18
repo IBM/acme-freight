@@ -16,13 +16,13 @@ Acme Freight 使用了开源 Node.js 框架 LoopBack——一个为新的和现�
 
 ### 部署 Acme Freight
 * [通过 IBM DevOps Toolchain 部署您自己的 Acme Freight](TOOLCHAIN-README.md)
-> [![部署到 Bluemix](./.bluemix/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy?repository=https%3A%2F%2Fgithub.com%2FIBM%2Facme-freight.git&cm_mmc=github-readme--native-_-acme-_-create-toolchain&cm_mmca1=000019RT&cm_mmca2=10004796)
+> [![部署到 IBM Cloud](./.bluemix/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy?repository=https%3A%2F%2Fgithub.com%2FIBM%2Facme-freight.git&cm_mmc=github-readme--native-_-acme-_-create-toolchain&cm_mmca1=000019RT&cm_mmca2=10004796)
 
 ### 利用 Node API Framework LoopBack 快速创建 API 
 * [使用 LoopBack 和 API Connect 通过 API 的形式快速暴露 ERP 数据](APIC-ERP-README.md) 
 
 ### 通过几次简单的点击为 OpenWhisk Action创建安全的 API
-* [在 Bluemix 上为 OpenWhisk Action创建安全的 API](OW-NAPI-README.md) 
+* [在 IBM Cloud 上为 OpenWhisk Action创建安全的 API](OW-NAPI-README.md) 
 
 ## Acme Freight 概述
 下面的视频将演示 Acme Freight 如何使用 Logistics Wizard 框架（以及 IBM API Connect）提供一个应用程序来帮助它们彻底改善其供应链的敏捷性。
@@ -43,7 +43,7 @@ Acme Freight 解决方案中利用了以下项目：
 
 * [acme-freight-controller](https://github.com/ibm/acme-freight-controller) - 充当服务之间交互的主要控制器。它接收来自用户界面的请求，将它们路由到 ERP 或天气推荐模块。
 
-*Acme Freight 是从 IBM Bluemix 项目 Logistics Wizard 复制和扩展而来。请访问 Logistics Wizard 项目 [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki)，查看原始 Logicistics Wizard 架构和部署策略的细节。*
+*Acme Freight 是从 IBM Cloud 项目 Logistics Wizard 复制和扩展而来。请访问 Logistics Wizard 项目 [wiki](https://github.com/IBM-Bluemix/logistics-wizard/wiki)，查看原始 Logicistics Wizard 架构和部署策略的细节。*
 
 
 ## 其他参考资源
