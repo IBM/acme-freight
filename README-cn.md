@@ -39,7 +39,7 @@ Acme Freight 解决方案中利用了以下项目：
 
 * [acme-freight-webui](https://github.com/ibm/acme-freight-webui) - 提供一个仪表板来查看正在进行的运输和警报。无需登录或用户凭证即可使用已部署的应用程序。任何试用该应用程序的新用户都会分配一个唯一演示 ID。在每个演示 ID 背后，Acme Freight 都会创建一个隔离环境，其中包含一组默认的业务用户、配送中心、零售店和运输路线。请参阅[演练](WALKTHROUGH.md)了解相关功能。
 
-* [acme-freight-recommendation](https://github.com/ibm/acme-freight-recommendation) - 根据天气情况来提供运输路线建议。它是一组 Bluemix OpenWhisk Actions，用于检索当前天气情况，并根据天气事件来生成新运输路线建议。然后，可以将这些建议转换为实际指令。
+* [acme-freight-recommendation](https://github.com/ibm/acme-freight-recommendation) - 根据天气情况来提供运输路线建议。它是一组 IBM Cloud OpenWhisk Actions，用于检索当前天气情况，并根据天气事件来生成新运输路线建议。然后，可以将这些建议转换为实际指令。
 
 * [acme-freight-controller](https://github.com/ibm/acme-freight-controller) - 充当服务之间交互的主要控制器。它接收来自用户界面的请求，将它们路由到 ERP 或天气推荐模块。
 
