@@ -1,6 +1,6 @@
 # The Acme Freight Pattern
 
-*Read this in other languages: [한국어](README-ko.md).*
+*Read this in other languages: [한국어](README-ko.md)、[中国](README-cn.md).*
 
 *For more on the Acme Freight pattern and the technologies behind it, [visit the Acme Freight pattern website](http://developer.ibm.com/code/journey/unlock-enterprise-data-using-apis?cm_mmc=github-code-_-native-_-acme-_-journey&cm_mmca1=000019RT&cm_mmca2=10004796).*
 
