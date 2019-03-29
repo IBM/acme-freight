@@ -1,26 +1,26 @@
-## Create secured APIs for your OpenWhisk actions on Bluemix
+## Create secured APIs for your IBM Cloud Functions
 
 *Read this in other languages: [한국어](OW-NAPI-README-ko.md).*
 
-### Creating an API for your OpenWhisk actions on Bluemix
+### Creating an API for your IBM Cloud Functions
 
-Once the [toolchain is installed](TOOLCHAIN-README.md), a set of OpenWhisk actions will get deployed to the region and space you chose when creating the toolchain. You can view them in the [OpenWhisk dashboard on Bluemix](https://console.ng.bluemix.net/openwhisk/manage/actions). Whenever a storm is simulated, the OpenWhisk actions are utilized to generate recommendations.
+Once the [toolchain is installed](TOOLCHAIN-README.md), a set of Cloud Function actions will get deployed to the region and space you chose when creating the toolchain. You can view them in the [Cloud Functions dashboard](https://cloud.ibm.com/openwhisk/manage/actions). Whenever a storm is simulated, the Cloud Function actions are utilized to generate recommendations.
 
-<img src="docs/actions.png" alt="OpenWhisk actions" width="600">
+<img src="docs/actions.png" alt="Cloud Function actions" width="600">
 
 #### Create API and Endpoints
 
-To expose these OpenWhisk actions as a part of an API, we need to click the APIs link near the top of the Bluemix OpenWhisk interface. And then click on the Create an OpenWhisk API button.
+To expose these Cloud Function actions as a part of an API, we need to click the APIs link near the top of the IBM Cloud Functions interface. And then click on the Create an Cloud Functions API button.
 
-1. Create a name for your API. I chose `Acme Freight OpenWhisk API`
+1. Create a name for your API. I chose `Acme Freight Cloud Functions API`
 
 2. Click Create Operation button to begin adding your endpoints.
 
-Name each endpoint to correspond with each OpenWhisk action. Choose `POST` as your Verb. Below is an example:
+Name each endpoint to correspond with each Cloud Function action. Choose `POST` as your Verb. Below is an example:
 
 <img src="docs/endpoint-modal.png" alt="Create operation endpoints" width="500">
 
-Repeat above to make an endpoint corresponding with each OpenWhisk action.
+Repeat above to make an endpoint corresponding with each Cloud Function action.
 
 Your resulting page should look like the image below:
 
@@ -57,11 +57,11 @@ The last thing you'll need is the full path to your APIs, which you can find on 
 
 ### Configure the controller application to use your newly created secure API endpoints
 
-Now that we've created the secure endpoints, we need to update the Acme Freight microservice that calls the OpenWhisk actions. The controller application already has the code to call a secured endpoint; we simply need to tell the application your secured API URL and API key that you created earlier.
+Now that we've created the secure endpoints, we need to update the Acme Freight microservice that calls the Cloud Function actions. The controller application already has the code to call a secured endpoint; we simply need to tell the application your secured API URL and API key that you created earlier.
 
 _Note: Using environment configuration is the best practice for updating the backend services that the controller needs. To access the secured API, the controller code checks if an API URL and API key are provided and uses them for requests. [See the code](https://github.com/IBM/acme-freight-controller/blob/dev/server/utils.py#L76)_
 
-Jump to your [Bluemix DevOps toolchains](https://console.ng.bluemix.net/devops/toolchains) and click the toolchain you created for Acme Freight. You should then see the following screen, click on the square under `Deliver` for the `controller` pipeline:
+Jump to your [IBM Cloud DevOps toolchains](https://cloud.ibm.com/devops/toolchains) and click the toolchain you created for Acme Freight. You should then see the following screen, click on the square under `Deliver` for the `controller` pipeline:
 
 <img src="docs/toolchains.png" alt="Toolchains" width="700">
 
@@ -77,7 +77,7 @@ Then hit save, go back to the pipeline and hit the `Run Stage` button:
 
 <img src="docs/run-stage.png" alt="Run stage" width="300">
 
-With just those few clicks, the Acme Freight application is now accessing secured OpenWhisk actions! Here are some of the advantages to securing our OpenWhisk actions:
-- Set a safe rate-limit setting to protect your application (and your credit card) from malicious spamming against your OpenWhisk actions.
-- Reveal your OpenWhisk endpoints to other consumer applications, not just Acme Freight. By creating API keys for each application that needs access to these APIs, you can individually track and manage consumers and even revoke access if ever necessary.
+With just those few clicks, the Acme Freight application is now accessing secured Cloud Function actions! Here are some of the advantages to securing our Cloud Function actions:
+- Set a safe rate-limit setting to protect your application (and your credit card) from malicious spamming against your Cloud Function actions.
+- Reveal your Cloud Function endpoints to other consumer applications, not just Acme Freight. By creating API keys for each application that needs access to these APIs, you can individually track and manage consumers and even revoke access if ever necessary.
 - Utilize the analytics view to see how often your APIs are being called and how long they take to fulfill. This enables you to track down latency issues as they arise.
